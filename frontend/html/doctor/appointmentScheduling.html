@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Dashboard</title>
+    <link rel="stylesheet" href="../../styleSheet/docAppointmentScheduling.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="left-panel">
+            <div class="logo">
+                <img src="https://i.ibb.co/f4rdZ7v/healthcare.png" alt="Logo">
+            </div>
+            <div class="menu">
+                <h3>PRIMARY MENU</h3>
+                <ul>
+                    <li><a href="./dashBoard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href=""><i class="fas fa-user-md"></i> Top Doctor's</a></li>
+                    <li><a href="appointment.html"><i class="fas fa-envelope"></i> Appointment </a></li>
+                    <li class="active"><a href="appointmentScheduling.html"><i class="fas fa-calendar-alt"></i> Appointment Scheduling</a></li>
+                    <li><a href="actionplanner.html"><i class="fas fa-stethoscope"></i> Action Planner</a></li>
+                </ul>
+                <h3>PROFILE</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Profile Settings</a></li>
+                    <li><a href="#"><i class="fas fa-bell"></i> Notification</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help & Settings</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <div class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="profile">
+                    <img src="https://i.ibb.co/xH7SD7k/reception.png" alt="Profile">
+                    <span>
+                        <h3>Hello Riya</h3>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Form Content -->
+            <div class="content">
+                <form id="appointment-form">
+                    <!-- Input Fields -->
+                    <label for="patient_id">Patient ID:</label>
+                    <input type="number" id="patient_id" name="patient_id" required>
+
+                    <label for="hospital_id">Hospital ID:</label>
+                    <input type="number" id="hospital_id" name="hospital_id" required>
+
+                    <label for="doctor_id">Doctor ID:</label>
+                    <input type="number" id="doctor_id" name="doctor_id" required>
+
+                    <label for="receptionist_id">Receptionist ID:</label>
+                    <input type="number" id="receptionist_id" name="receptionist_id" required>
+
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="Scheduled">Scheduled</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                        <option value="Rescheduled">Rescheduled</option>
+                    </select>
+
+                    <label for="date">Appointment Date (YYYY-MM-DD):</label>
+                    <input type="date" id="date" name="date" required pattern="\d{4}-\d{2}-\d{2}">
+
+                    <label for="time">Appointment Time:</label>
+                    <input type="time" id="time" name="time" required>
+
+                    <label for="notes">Notes:</label>
+                    <textarea id="notes" name="notes" rows="5" placeholder="Add any notes here..."></textarea>
+
+                    <!-- Submit Button -->
+                    <button type="submit">Submit Appointment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to Send Form Data -->
+    <!-- <script>
+      document.getElementById("appointment-form").addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission behavior
+  
+          // Manually collect form values
+          const patient_id = document.getElementById('patient_id').value;
+          const hospital_id = document.getElementById('hospital_id').value;
+          const doctor_id = document.getElementById('doctor_id').value;
+          const receptionist_id = document.getElementById('receptionist_id').value;
+          const status = document.getElementById('status').value;
+          const date = document.getElementById('date').value; // Date in YYYY-MM-DD format
+          const time = document.getElementById('time').value;
+          const notes = document.getElementById('notes').value;
+  
+          // Ensure date is in YYYY-MM-DD format (if it's not already)
+          const formattedDate = new Date(date).toISOString().split('T')[0]; // YYYY-MM-DD format
+  
+          // Create a data object
+          const appointmentData = {
+              patient_id,
+              hospital_id,
+              doctor_id,
+              receptionist_id,
+              status,
+              date: formattedDate,  // Use the formatted date
+              time,
+              notes
+          };
+  
+          // Send the data to the server
+          fetch("http://172.16.244.170:3000/appointments/create", {  // Change to localhost for local development
+              method: "POST",
+              body: JSON.stringify(appointmentData),
+              headers: {
+                  "Content-Type": "application/json"
+              }
+          })
+          .then(response => response.json())
+          .then(data => {
+              alert("Appointment Submitted Successfully!");
+              console.log("Response:", data);
+          })
+          .catch(error => {
+              alert("Error submitting appointment!");
+              console.error("Error:", error);
+          });
+      });
+  </script> -->
+  
+
+  <script>
+    document.getElementById("appointment-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission behavior
+  
+        // Manually collect form values
+        const patient_id = document.getElementById('patient_id').value;
+        const hospital_id = document.getElementById('hospital_id').value;
+        const doctor_id = document.getElementById('doctor_id').value;
+        const receptionist_id = document.getElementById('receptionist_id').value;
+        const status = document.getElementById('status').value;
+        const appointment_date = document.getElementById('date').value; // Date in YYYY-MM-DD format
+        const appointment_time = document.getElementById('time').value;
+        const notes = document.getElementById('notes').value;
+  
+        // Ensure date is in YYYY-MM-DD format (if it's not already)
+        const formattedDate = new Date(appointment_date).toISOString().split('T')[0]; // YYYY-MM-DD format
+  
+        // Create a data object
+        const appointmentData = {
+            patient_id,
+            hospital_id,
+            doctor_id,
+            receptionist_id,
+            status,
+            appointment_date: formattedDate,  // Use the formatted date
+            appointment_time,
+            notes
+        };
+  
+        // Log the appointment data in the console
+        console.log("Form Data:", appointmentData);
+  
+        // Send the data to the server
+        fetch("http://localhost:3000/appointments/create", {  // Change to localhost for local development
+            method: "POST",
+            body: JSON.stringify(appointmentData),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert("Appointment Submitted Successfully!");
+            console.log("Response:", data);
+        })
+        .catch(error => {
+            alert("Error submitting appointment!");
+            console.error("Error:", error);
+        });
+    });
+  </script>
+  
+</body>
+
+</html>

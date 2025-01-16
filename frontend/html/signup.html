@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../styleSheet/signup.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <section class="container forms">
+        <div class="image-section">
+            <img src="../photos/login-page.png" class="image" />
+        </div>
+        <div class="form login">
+            <div class="form-content">
+                <header>Sign Up</header>
+                <form id="signupForm">
+                    <div class="field input-field">
+                        <input type="email" id="email" placeholder="Email" class="input" name="email" required>
+                    </div>
+
+                    <div class="field input-field">
+                        <select id="role" name="role" class="input Role" required>
+                            <option value="patient">Patient</option>
+                            <option value="doctor">Doctor</option>
+                        </select>
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" id="password" placeholder="Password" name="password" class="password" required>
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword" class="password" required>
+                    </div>
+
+                    <div class="field button-field">
+                        <button type="submit">Sign Up</button>
+                    </div>
+                    <div id="message"></div>
+                </form>
+
+                <div class="form-link">
+                    <span>Already have an account? <a href="./login.html" class="link signup-link"><u>Login</u></a></span>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="media-options">
+                <button>
+                    <img src="../photos/google-icon.png" alt="" class="google-img">
+                </button>
+                <button>
+                    <img src="../photos/ios-icon.png" alt="" class="ios-img">
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="../javaScript/signup.js"></script>
+</body>
+
+</html>

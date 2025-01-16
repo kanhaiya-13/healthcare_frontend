@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="../styleSheet/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <section class="container forms">
+        <div class="image-section">
+            <img src="../photos/login-page.png" class="image" />
+        </div>
+        <div class="form login">
+            <div class="form-content">
+                <header>Login</header>
+                <form id="loginForm">
+                    <div class="field input-field">
+                        <input type="email" id="email" placeholder="Email" class="input" name="email" required>
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" id="password" placeholder="Password" class="password" name="password"
+                            required>
+                    </div>
+
+                    <div class="field button-field">
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+
+                <div class="form-link">
+                    <span>Don't have an account? <a href="../html/signup.html"
+                            class="link signup-link">Signup</a></span>
+                </div>
+            </div>
+            <!-- Error/Success Message -->
+            <div id="message"></div>
+            <div class="line"></div>
+
+            <div class="media-options">
+                <button>
+                    <img src="../photos/google-icon.png" alt="" class="google-img">
+                </button>
+                <button>
+                    <img src="../photos/ios-icon.png" alt="" class="ios-img">
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="../javaScript/login.js"></script>
+</body>
+
+</html>

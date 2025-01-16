@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Planner</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../styleSheet/actionplanner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="left-panel">
+            <div class="logo">
+                <img src="https://i.ibb.co/f4rdZ7v/healthcare.png" alt="Logo">
+            </div>
+            <div class="menu">
+                <h3>PRIMARY MENU</h3>
+                <ul>
+                    <li><a href="./dashBoard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-user-md"></i> Top Doctor's</a></li>
+                    <li><a href="appointment.html"><i class="fas fa-envelope"></i> Appointment</a></li>
+                    <li><a href="appointmentScheduling.html"><i class="fas fa-calendar-alt"></i> Appointment Scheduling</a></li>
+                    <li class="active"><a href="actionplanner.html"><i class="fas fa-stethoscope"></i> Action Planner</a></li>
+                </ul>
+                <h3>PROFILE</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Profile Settings</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help & Settings</a></li>
+                    <button class="logout-btn">Logout</button>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <!-- Header -->
+            <header>
+                <h1>Planners Dashboard</h1>
+                <p>Visualize and Manage Doctors' Schedules</p>
+            </header>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div id="calendar" class="calendar-container"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.global.min.js"></script>
+    <script src="../../javaScript/actionplanner.js"></script>
+</body>
+
+</html>

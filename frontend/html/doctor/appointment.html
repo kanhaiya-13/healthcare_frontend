@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Dashboard</title>
+    <link rel="stylesheet" href="../../styleSheet/docAppointment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="left-panel">
+            <div class="logo">
+                <img src="https://i.ibb.co/f4rdZ7v/healthcare.png" alt="Logo">
+            </div>
+            <div class="menu">
+                <h3>PRIMARY MENU</h3>
+                <ul>
+                    <li><a href="./dashBoard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href=""><i class="fas fa-user-md"></i> Top Doctor's</a></li>
+                    <li class="active"><a href="appointment.html"><i class="fas fa-envelope"></i> Appointment </a></li>
+                    <li ><a href="appointmentScheduling.html"><i class="fas fa-calendar-alt"></i> Appointment Scheduling</a></li>
+                    <li><a href="actionplanner.html"><i class="fas fa-stethoscope"></i> Action Planner</a></li>
+                </ul>
+                <h3>PROFILE</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Profile Settings</a></li>
+                    <li><a href="#"><i class="fas fa-bell"></i> Notification</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help & Settings</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <div class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="profile">
+                    <img src="https://i.ibb.co/xH7SD7k/reception.png" alt="Profile">
+                    <span>
+                        <h3>Hello Riya</h3>
+                    </span>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- Left Section: Client's Appointments -->
+                <div class="client-appointments">
+                    <h2>Client's Appointment</h2>
+                    <div class="cards-container" id="doctorsContainer"></div>
+
+                    <!-- Modal -->
+                    <div class="modal" id="doctorModal">
+                        <div class="modal-content">
+                            <button class="close-btn" onclick="closeModal()">&times;</button>
+                            <h2 id="modalDoctorName"></h2>
+                            <table class="doctor-details-table">
+                                <tr>
+                                    <th>Patient ID:</th>
+                                    <td id="modalSpecialization"></td>
+                                </tr>
+                                <tr>
+                                    <th>Patient Name:</th>
+                                    <td id="modalQualification"></td>
+                                </tr>
+                                <tr>
+                                    <th>Doctor Name:</th>
+                                    <td id="modalExperience"></td>
+                                </tr>
+                                <tr>
+                                    <th>Appointment Time:</th>
+                                    <td id="modalContact"></td>
+                                </tr>
+                                <tr>
+                                    <th>Appointment Date:</th>
+                                    <td id="modalEmail"></td>
+                                </tr>
+                                <tr>
+                                    <th>Note:</th>
+                                    <td id="modalFee"></td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Section: Calendar and Cancelled Appointments -->
+                <div class="right-content">
+
+                    <div class="calendar-container">
+                        <h2>Calendar</h2>
+                        <table id="calendar">
+                            <thead>
+                                <tr>
+                                    <th>Mon</th>
+                                    <th>Tue</th>
+                                    <th>Wed</th>
+                                    <th>Thu</th>
+                                    <th>Fri</th>
+                                    <th>Sat</th>
+                                    <th>Sun</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-date="2024-01-01">1</td>
+                                    <td data-date="2024-01-02">2</td>
+                                    <td data-date="2024-01-03">3</td>
+                                    <td data-date="2024-01-04">4</td>
+                                    <td data-date="2024-01-05">5</td>
+                                    <td data-date="2024-01-06">6</td>
+                                    <td data-date="2024-01-07">7</td>
+                                </tr>
+                                <tr>
+                                    <td data-date="2024-01-08">8</td>
+                                    <td data-date="2024-01-09">9</td>
+                                    <td data-date="2024-01-10">10</td>
+                                    <td data-date="2024-01-11">11</td>
+                                    <td data-date="2024-01-12">12</td>
+                                    <td data-date="2024-01-13">13</td>
+                                    <td data-date="2024-01-14">14</td>
+                                </tr>
+                                <tr>
+                                    <td data-date="2024-01-15">15</td>
+                                    <td data-date="2024-01-16">16</td>
+                                    <td data-date="2024-01-17">17</td>
+                                    <td data-date="2024-01-18">18</td>
+                                    <td data-date="2024-01-19">19</td>
+                                    <td data-date="2024-01-20">20</td>
+                                    <td data-date="2024-01-21">21</td>
+                                </tr>
+                                <tr>
+                                    <td data-date="2024-01-22">22</td>
+                                    <td data-date="2024-01-23">23</td>
+                                    <td data-date="2024-01-24">24</td>
+                                    <td data-date="2024-01-25">25</td>
+                                    <td data-date="2024-01-26">26</td>
+                                    <td data-date="2024-01-27">27</td>
+                                    <td data-date="2024-01-28">28</td>
+                                </tr>
+                                <tr>
+                                    <td data-date="2024-01-29">29</td>
+                                    <td data-date="2024-01-30">30</td>
+                                    <td data-date="2024-01-31">31</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="cancelled-appointments">
+                        <h2>Cancelled Appointment</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const BACKEND_URL = "http://localhost:3000"; // Replace with your backend URL
+
+let doctors = []; // Store fetched doctor data globally
+
+async function fetchDoctors() {
+    try {
+        // Fetch the appointments data from the backend API
+        const response = await fetch(`${BACKEND_URL}/appointments`);
+        
+        // Check if the response is successful
+        if (!response.ok) {
+            throw new Error("Failed to fetch appointments");
+        }
+
+        // Parse the response as JSON
+        const appointments = await response.json();
+
+        // Store the appointments data in the doctors array
+        doctors = appointments;
+
+        // Render doctors (appointments) data
+        renderDoctors(doctors);
+
+        // Attach calendar events (for date filtering)
+        attachCalendarEvents();
+    } catch (error) {
+        console.error("Error fetching appointments:", error);
+    }
+}
+
+// Call the fetchDoctors function when the page loads
+fetchDoctors();
+
+    
+        function renderDoctors(filteredDoctors) {
+            const container = document.getElementById("doctorsContainer");
+            container.innerHTML = ""; // Clear existing content
+            if (filteredDoctors.length === 0) {
+                container.innerHTML = "<p>No appointments available for the selected date.</p>";
+                return;
+            }
+    
+            filteredDoctors.forEach(doctor => {
+                const doctorCard = document.createElement("div");
+                doctorCard.className = "doctor-card";
+    
+                // Set the card content
+                doctorCard.innerHTML = `
+                    <p class="doctor-name">${doctor.patient_name}</p>
+                    <p class="doctor-info">Doctor Name: ${doctor.doctor_name}</p>
+                    <p class="doctor-info">Date: ${doctor.appointment_date}</p>
+                    <p class="doctor-info">Time: ${doctor.appointment_time}</p>
+                `;
+    
+                // Add click event to open modal
+                doctorCard.onclick = () => openModal(
+                    doctor.appointment_id,
+                    doctor.patient_id,
+                    doctor.patient_name,
+                    doctor.doctor_name,
+                    doctor.appointment_time,
+                    doctor.appointment_date,
+                    doctor.notes
+                );
+    
+                // Append the card to the container
+                container.appendChild(doctorCard);
+            });
+        }
+    
+        function attachCalendarEvents() {
+            const calendarCells = document.querySelectorAll("#calendar td[data-date]");
+    
+            calendarCells.forEach(cell => {
+                cell.addEventListener("click", () => {
+                    const selectedDate = cell.getAttribute("data-date");
+                    filterAppointmentsByDate(selectedDate);
+                });
+            });
+        }
+    
+        function filterAppointmentsByDate(selectedDate) {
+            const filteredDoctors = doctors.filter(doctor => doctor.appointment_date === selectedDate);
+            renderDoctors(filteredDoctors);
+        }
+
+        function attachCalendarEvents() {
+    const calendarCells = document.querySelectorAll("#calendar td");
+
+    calendarCells.forEach(cell => {
+        cell.addEventListener("click", function() {
+            const selectedDate = this.getAttribute("data-date");
+
+            // Ensure the selectedDate is in the same format as the appointment date
+            const formattedSelectedDate = new Date(selectedDate).toISOString().split('T')[0];
+
+            // Filter appointments based on selected date
+            const filteredAppointments = appointments.filter(appointment => {
+                const formattedAppointmentDate = new Date(appointment.appointment_date).toISOString().split('T')[0];
+                return formattedAppointmentDate === formattedSelectedDate;
+            });
+
+            renderAppointments(filteredAppointments); // Re-render appointments with the filtered data
+        });
+    });
+}
+
+    
+        function openModal(appointment_id, patient_id, patient_name, doctor_name, appointment_time, appointment_date, notes) {
+            // Set modal content
+            document.getElementById("modalDoctorName").innerText = appointment_id;
+            document.getElementById("modalSpecialization").innerText = patient_id;
+            document.getElementById("modalQualification").innerText = patient_name;
+            document.getElementById("modalExperience").innerText = doctor_name;
+            document.getElementById("modalContact").innerText = appointment_time;
+            document.getElementById("modalEmail").innerText = appointment_date;
+            document.getElementById("modalFee").innerText = notes;
+    
+            // Display the modal
+            document.getElementById("doctorModal").style.display = "flex";
+        }
+    
+        function closeModal() {
+            // Hide the modal when close button is clicked
+            document.getElementById("doctorModal").style.display = "none";
+        }
+    
+        // Fetch doctors when the page loads
+        fetchDoctors();
+    </script>
+
+    <!-- Script to Send Form Data -->
+    <!-- <script>
+      document.getElementById("appointment-form").addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission behavior
+  
+          // Manually collect form values
+          const patient_id = document.getElementById('patient_id').value;
+          const hospital_id = document.getElementById('hospital_id').value;
+          const doctor_id = document.getElementById('doctor_id').value;
+          const receptionist_id = document.getElementById('receptionist_id').value;
+          const status = document.getElementById('status').value;
+          const date = document.getElementById('date').value; // Date in YYYY-MM-DD format
+          const time = document.getElementById('time').value;
+          const notes = document.getElementById('notes').value;
+  
+          // Ensure date is in YYYY-MM-DD format (if it's not already)
+          const formattedDate = new Date(date).toISOString().split('T')[0]; // YYYY-MM-DD format
+  
+          // Create a data object
+          const appointmentData = {
+              patient_id,
+              hospital_id,
+              doctor_id,
+              receptionist_id,
+              status,
+              date: formattedDate,  // Use the formatted date
+              time,
+              notes
+          };
+  
+          // Send the data to the server
+          fetch("http://172.16.244.170:3000/appointments/create", {  // Change to localhost for local development
+              method: "POST",
+              body: JSON.stringify(appointmentData),
+              headers: {
+                  "Content-Type": "application/json"
+              }
+          })
+          .then(response => response.json())
+          .then(data => {
+              alert("Appointment Submitted Successfully!");
+              console.log("Response:", data);
+          })
+          .catch(error => {
+              alert("Error submitting appointment!");
+              console.error("Error:", error);
+          });
+      });
+  </script> -->
+  
+  
+</body>
+
+</html>
