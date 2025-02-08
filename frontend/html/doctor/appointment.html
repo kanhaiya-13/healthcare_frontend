@@ -176,7 +176,13 @@ let doctors = []; // Store fetched doctor data globally
 async function fetchDoctors() {
     try {
         // Fetch the appointments data from the backend API
-        const response = await fetch(`${BACKEND_URL}/appointments`);
+        const response = await fetch(`${BACKEND_URL}/appointments`, {
+  method: 'GET',
+  credentials: 'include', // This ensures cookies are sent
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
         
         // Check if the response is successful
         if (!response.ok) {
