@@ -133,3 +133,27 @@ function renderCharts(patientsData, diagnosisData) {
 document.addEventListener("DOMContentLoaded", () => {
   fetchAssessmentData();
 });
+
+document.getElementById("logout-btn").addEventListener("click", async () => {
+  try {
+    const token = getCookie("token");
+    const response = await fetch(`${BACKEND_URL}/users/logout`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      document.cookie = "token=; path=/; max-age=0; secure"; // Clear token cookie
+      alert("Logged out successfully");
+      window.location.href = "/frontend/html/login.html";
+    } else {
+      alert("Logout failed");
+    }
+  } catch (error) {
+    console.error("Error during logout:", error);
+  }
+});
