@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="../../styleSheet/addPatient.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Patient Registration</div>
+      <form action="#">
+        <div class="user__details">
+          <div class="input__box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="E.g: John Smith" required>
+          </div>
+          <div class="input__box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="johnWC98" required>
+          </div>
+          <div class="input__box">
+            <span class="details">Email</span>
+            <input type="email" placeholder="johnsmith@hotmail.com" required>
+          </div>
+          <div class="input__box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="0123456789" required>
+          </div>
+          <div class="input__box">
+            <span class="details">DOB</span>
+            <input type="date" placeholder="DDMMYYYY" required>
+          </div>
+          <div class="input__box">
+            <span class="details">Address</span>
+            <input type="text" placeholder="abc road,Ghatkopar east" required>
+          </div>
+          <div class="input__box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="********" required>
+          </div>
+          <div class="input__box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="********" required>
+          </div>
+        </div>
+        <div class="gender__details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender__title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span>Male</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span>Female</span>
+            </label>
+            <label for="dot-3">
+              <span class="dot three"></span>
+              <span>Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+    <script>
+
+      // Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the form element
+    const form = document.querySelector('form');
+
+    // Add submit event listener to the form
+    form.addEventListener('submit', async function(e) {
+        // Prevent the default form submission
+        e.preventDefault();
+
+        // Get all form values
+        const formData = {
+            name: form.querySelector('input[placeholder="E.g: John Smith"]').value,
+            username: form.querySelector('input[placeholder="johnWC98"]').value,
+            email: form.querySelector('input[type="email"]').value,
+            contact_number: form.querySelector('input[placeholder="0123456789"]').value,
+            dob: form.querySelector('input[type="date"]').value,
+            address: form.querySelector('input[placeholder="abc road,Ghatkopar east"]').value,
+            password: form.querySelector('input[type="password"]').value,
+            confirmPassword: form.querySelectorAll('input[type="password"]')[1].value,
+            gender: getSelectedGender()
+        };
+
+        // Validate passwords match
+        if (formData.password !== formData.confirmPassword) {
+            alert('Passwords do not match!');
+            return;
+        }
+
+        try {
+            // Make API call to backend
+            const response = await fetch('http://localhost:3000/patients/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            
+            // Handle successful registration
+            alert('Registration successful!');
+            form.reset(); // Reset form after successful submission
+
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred during registration. Please try again.');
+        }
+    });
+
+    // Helper function to get selected gender
+    function getSelectedGender() {
+        const genderInputs = document.querySelectorAll('input[name="gender"]');
+        const genderLabels = ['Male', 'Female', 'Prefer not to say'];
+        
+        for (let i = 0; i < genderInputs.length; i++) {
+            if (genderInputs[i].checked) {
+                return genderLabels[i];
+            }
+        }
+        return null;
+    }
+});
+    </script>
+  </body>
+</html>
