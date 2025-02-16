@@ -135,7 +135,24 @@ body {
     margin-right: 10px;
     border-radius: 50%;
   }
-  
+  .newPatient-container{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 100px;
+    padding-top: 10px;
+  }
+
+  .newPatient{
+    background-color: #33E4DB;
+    color: #fff;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
   /* Content Area */
   .content {
     display: flex;

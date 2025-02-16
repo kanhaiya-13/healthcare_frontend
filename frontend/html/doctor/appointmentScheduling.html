@@ -7,6 +7,7 @@
     <title>Appointment Dashboard</title>
     <link rel="stylesheet" href="../../styleSheet/docAppointmentScheduling.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../../styleSheet/addNewPatient.css">
 </head>
 
 <body>
@@ -53,7 +54,81 @@
                     </span>
                 </div>
             </div>
-
+             <!-- Button to open the modal -->
+              <div class="newPatient-container">
+                <div>
+                    <button class="newPatient" id="openModalBtn">Add New Patient</button>
+                </div>
+              </div>
+    
+<!-- Modal Overlay -->
+<div id="modalOverlay" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="title">Patient Registration</div>
+        <form action="#">
+          <div class="user__details">
+            <div class="input__box">
+              <span class="details">Full Name</span>
+              <input type="text" placeholder="E.g: John Smith" required>
+            </div>
+            <div class="input__box">
+              <span class="details">Username</span>
+              <input type="text" placeholder="johnWC98" required>
+            </div>
+            <div class="input__box">
+              <span class="details">Email</span>
+              <input type="email" placeholder="johnsmith@hotmail.com" required>
+            </div>
+            <div class="input__box">
+              <span class="details">Phone Number</span>
+              <input type="text" placeholder="0123456789" required>
+            </div>
+            <div class="input__box">
+              <span class="details">DOB</span>
+              <input type="date" placeholder="DDMMYYYY" required>
+            </div>
+            <div class="input__box">
+              <span class="details">Address</span>
+              <input type="text" placeholder="abc road, Ghatkopar east" required>
+            </div>
+            <div class="input__box">
+              <span class="details">Password</span>
+              <input type="password" placeholder="********" required>
+            </div>
+            <div class="input__box">
+              <span class="details">Confirm Password</span>
+              <input type="password" placeholder="********" required>
+            </div>
+          </div>
+          <div class="gender__details">
+            <input type="radio" name="gender" id="dot-1">
+            <input type="radio" name="gender" id="dot-2">
+            <input type="radio" name="gender" id="dot-3">
+            <span class="gender__title">Gender</span>
+            <div class="category">
+              <label for="dot-1">
+                <span class="dot one"></span>
+                <span>Male</span>
+              </label>
+              <label for="dot-2">
+                <span class="dot two"></span>
+                <span>Female</span>
+              </label>
+              <label for="dot-3">
+                <span class="dot three"></span>
+                <span>Prefer not to say</span>
+              </label>
+            </div>
+          </div>
+          <div class="button">
+            <input type="submit" value="Register">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
             <!-- Form Content -->
             <div class="content">
                 <form id="appointment-form">
@@ -93,59 +168,108 @@
             </div>
         </div>
     </div>
-
-    <!-- Script to Send Form Data -->
-    <!-- <script>
-      document.getElementById("appointment-form").addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent default form submission behavior
-  
-          // Manually collect form values
-          const patient_id = document.getElementById('patient_id').value;
-          const hospital_id = document.getElementById('hospital_id').value;
-          const doctor_id = document.getElementById('doctor_id').value;
-          const receptionist_id = document.getElementById('receptionist_id').value;
-          const status = document.getElementById('status').value;
-          const date = document.getElementById('date').value; // Date in YYYY-MM-DD format
-          const time = document.getElementById('time').value;
-          const notes = document.getElementById('notes').value;
-  
-          // Ensure date is in YYYY-MM-DD format (if it's not already)
-          const formattedDate = new Date(date).toISOString().split('T')[0]; // YYYY-MM-DD format
-  
-          // Create a data object
-          const appointmentData = {
-              patient_id,
-              hospital_id,
-              doctor_id,
-              receptionist_id,
-              status,
-              date: formattedDate,  // Use the formatted date
-              time,
-              notes
-          };
-  
-          // Send the data to the server
-          fetch("http://172.16.244.170:3000/appointments/create", {  // Change to localhost for local development
-              method: "POST",
-              body: JSON.stringify(appointmentData),
-              headers: {
-                  "Content-Type": "application/json"
-              }
-          })
-          .then(response => response.json())
-          .then(data => {
-              alert("Appointment Submitted Successfully!");
-              console.log("Response:", data);
-          })
-          .catch(error => {
-              alert("Error submitting appointment!");
-              console.error("Error:", error);
-          });
-      });
-  </script> -->
-  
-
   <script>
+
+// script.js
+document.addEventListener("DOMContentLoaded", function () {
+  const modalOverlay = document.getElementById("modalOverlay");
+  const openModalBtn = document.getElementById("openModalBtn");
+  const closeBtn = document.querySelector(".close-btn");
+
+  // Open modal
+  openModalBtn.addEventListener("click", function () {
+    modalOverlay.style.display = "flex";
+  });
+
+  // Close modal
+  closeBtn.addEventListener("click", function () {
+    modalOverlay.style.display = "none";
+  });
+
+  // Close modal when clicking outside
+  modalOverlay.addEventListener("click", function (e) {
+    if (e.target === modalOverlay) {
+      modalOverlay.style.display = "none";
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const modalOverlay = document.getElementById("modalOverlay");
+  const openModalBtn = document.getElementById("openModalBtn");
+  const closeBtn = document.querySelector(".close-btn");
+  const registrationForm = document.querySelector(".modal-overlay form");
+
+  // Open modal
+  openModalBtn.addEventListener("click", function () {
+    modalOverlay.style.display = "flex";
+  });
+
+  // Close modal
+  closeBtn.addEventListener("click", function () {
+    modalOverlay.style.display = "none";
+  });
+
+  // Close modal when clicking outside
+  modalOverlay.addEventListener("click", function (e) {
+    if (e.target === modalOverlay) {
+      modalOverlay.style.display = "none";
+    }
+  });
+
+  // Handle form submission
+  registrationForm.addEventListener("submit", async function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Collect form data
+    const formData = {
+      name: document.querySelector(".modal-overlay input[type='text'][placeholder='E.g: John Smith']").value,
+      username: document.querySelector(".modal-overlay input[type='text'][placeholder='johnWC98']").value,
+      email: document.querySelector(".modal-overlay input[type='email']").value,
+      contactNumber: document.querySelector(".modal-overlay input[type='text'][placeholder='0123456789']").value,
+      dob: document.querySelector(".modal-overlay input[type='date']").value,
+      address: document.querySelector(".modal-overlay input[type='text'][placeholder='abc road, Ghatkopar east']").value,
+      password: document.querySelector(".modal-overlay input[type='password'][placeholder='********']").value,
+      confirmPassword: document.querySelector(".modal-overlay input[type='password'][placeholder='********']").value,
+      gender: document.querySelector(".modal-overlay input[type='radio']:checked")?.nextElementSibling?.textContent.trim(),
+    };
+
+    // Validate passwords match
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    // Remove confirmPassword from the data to be sent
+    delete formData.confirmPassword;
+
+    try {
+      // Send data to backend API
+      const response = await fetch("http://localhost:3000/patients/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      // Handle response
+      if (response.ok) {
+        const result = await response.json();
+        alert("Registration successful!");
+        console.log("Backend response:", result);
+        registrationForm.reset(); // Clear the form
+        modalOverlay.style.display = "none"; // Close the modal
+      } else {
+        const error = await response.json();
+        alert(`Registration failed: ${error.message || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred while submitting the form. Please try again.");
+    }
+  });
+});
     document.getElementById("appointment-form").addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent default form submission behavior
   
