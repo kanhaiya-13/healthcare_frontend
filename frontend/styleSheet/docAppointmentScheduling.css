@@ -168,7 +168,8 @@ form {
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 8px;
-    width: 76%;
+    width: 90%;
+    max-width: 700px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -187,6 +188,7 @@ form textarea {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    max-height: 50px;
 }
 
 form button {

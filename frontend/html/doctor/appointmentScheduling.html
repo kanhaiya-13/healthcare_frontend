@@ -136,15 +136,6 @@
                     <label for="patient_id">Patient ID:</label>
                     <input type="number" id="patient_id" name="patient_id" required>
 
-                    <label for="hospital_id">Hospital ID:</label>
-                    <input type="number" id="hospital_id" name="hospital_id" required>
-
-                    <label for="doctor_id">Doctor ID:</label>
-                    <input type="number" id="doctor_id" name="doctor_id" required>
-
-                    <label for="receptionist_id">Receptionist ID:</label>
-                    <input type="number" id="receptionist_id" name="receptionist_id" required>
-
                     <label for="status">Status:</label>
                     <select id="status" name="status" required>
                         <option value="Scheduled">Scheduled</option>
@@ -275,9 +266,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
         // Manually collect form values
         const patient_id = document.getElementById('patient_id').value;
-        const hospital_id = document.getElementById('hospital_id').value;
-        const doctor_id = document.getElementById('doctor_id').value;
-        const receptionist_id = document.getElementById('receptionist_id').value;
         const status = document.getElementById('status').value;
         const appointment_date = document.getElementById('date').value; // Date in YYYY-MM-DD format
         const appointment_time = document.getElementById('time').value;
@@ -289,9 +277,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create a data object
         const appointmentData = {
             patient_id,
-            hospital_id,
-            doctor_id,
-            receptionist_id,
             status,
             appointment_date: formattedDate,  // Use the formatted date
             appointment_time,
@@ -307,7 +292,8 @@ document.addEventListener("DOMContentLoaded", function () {
             body: JSON.stringify(appointmentData),
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+            credentials:"include"
         })
         .then(response => response.json())
         .then(data => {

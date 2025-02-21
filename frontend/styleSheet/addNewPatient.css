@@ -23,7 +23,7 @@
     padding: 25px;
     border-radius: 10px;
     width: 90%;
-    max-width: 500px;
+    max-width: 600px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.3s ease;
   }
@@ -35,7 +35,7 @@
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      trans: translateY(0);
     }
   }
   
@@ -82,7 +82,7 @@
   }
   
   .modal-overlay .input__box input {
-    width: 100%;
+    width: 95%;
     height: 40px;
     padding: 10px;
     border: 1px solid #ddd;
