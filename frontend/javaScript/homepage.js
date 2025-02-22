@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       <li><a href="#home">HOME</a></li>
       <li><a href="#about">ABOUT US</a></li>
       <li><a href="#services">SERVICES</a></li>
-      <li><a href="./login.html">Login</a></li>
-      <li><a href="./signup.html">SignUp</a></li>
+      <li><a href="html/login.html">Login</a></li>
+      <li><a href="html/signup.html">SignUp</a></li>
     `;
   }
 });
