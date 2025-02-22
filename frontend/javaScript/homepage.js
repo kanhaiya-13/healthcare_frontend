@@ -36,17 +36,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (data.isLoggedIn) {
         // Default image in case profile picture is missing
-        const defaultImage = "../photos/google-icon.png";
+        const defaultImage = "photos/google-icon.png";
         const profilePicture = data.profilePicture || defaultImage;
 
         // Determine the profile link based on the user's role
         let profileLink = ""; // Default profile page
         if (data.user.role === "doctor") {
-          profileLink = "/frontend/html/doctor/dashBoard.html";
+          profileLink = "html/doctor/dashBoard.html";
         } else if (data.user.role === "patient") {
-          profileLink = "/frontend/html/patient/dashBoard.html";
+          profileLink = "html/patient/dashBoard.html";
         } else if (data.user.role === "receptionist") {
-          profileLink = "/frontend/receptionist-dashboard.html";
+          profileLink = "receptionist-dashboard.html";
         }
 
         // Display user's name and profile picture
