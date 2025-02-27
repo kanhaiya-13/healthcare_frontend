@@ -1,0 +1,137 @@
+<!-- 
+    File: patientAppointmentScheduling.html
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This file contains the HTML code for the appointment scheduling page from client view. 
+                 It includes a form to schedule a new appointment with a patient and submit the details to the server.
+
+    Last Edited by: Bhagyesh Chaudhari
+    Last Edited on: 27th February 2025
+
+    Changes Made: Added a modal to add a new patient and updated the form to include patient ID.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Dashboard</title>
+
+    <!-- Linked patientAppointmentScheduling.css file -->
+    <link rel="stylesheet" href="../stylesheet/patientAppointmentScheduling.css">
+
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Left Sidebar -->
+      <div class="left-panel">
+
+        <!-- Logo -->
+        <div class="logo">
+          <img src="https://i.ibb.co/f4rdZ7v/healthcare.png" alt="Logo">
+        </div>
+
+        <!-- Menu -->
+        <div class="menu">
+          <h3>PRIMARY MENU</h3>
+          <ul>
+            <li >
+              <a href="./patientDashBoard.html"
+                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              >
+            </li>
+            <li>
+              <a href=""><i class="fas fa-user-md"></i> Top Doctor's</a>
+            </li>
+            <li>
+              <a href="./patientAppointment.html">
+                <i class="fas fa-envelope"></i> Appointment
+              </a>
+            </li>
+            <li class="active">
+              <a href="./patientAppointmentScheduling.html">
+                <i class="fas fa-calendar-alt"></i> Appointment Scheduling</a
+              >
+            </li>
+          </ul>
+          
+          <h3>PROFILE</h3>
+
+          <ul>
+            <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Profile Settings</a></li>
+            <li><a href="#"><i class="fas fa-question-circle"></i> Help & Settings</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <!-- Right Panel -->
+      <div class="right-panel">
+
+        <!-- Top Bar -->
+        <div class="top-bar">
+          <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+          </div>
+          <div class="profile">
+            <img src="https://i.ibb.co/xH7SD7k/reception.png" alt="Profile">
+            <span>
+              <h3>Hello Riya</h3>
+            </span>
+          </div>
+        </div>
+          
+        <!-- Form Content -->
+        <div class="content">
+
+          <!-- Form Title -->
+          <form id="appointment-form">
+
+            <!-- Doctor Id -->
+            <label for="doctor_id">Doctor ID:</label>
+            <input type="number" id="doctor_id" name="doctor_id" required>
+
+            <!-- Status -->
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+              <option value="Scheduled">Scheduled</option>
+              <option value="Completed">Completed</option>
+              <option value="Cancelled">Cancelled</option>
+              <option value="Rescheduled">Rescheduled</option>
+            </select>
+
+            <!-- Appointment Date -->
+            <label for="date">Appointment Date (YYYY-MM-DD):</label>
+            <input type="date" id="date" name="date" required pattern="\d{4}-\d{2}-\d{2}">
+
+            <!-- Appointment Time -->
+            <label for="time">Appointment Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <!-- Notes -->
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes" rows="5" placeholder="Add any notes here..."></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Appointment</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linked JavaScript file -->
+    <script src="../js/appointmentScheduling.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,97 @@
+<!-- 
+    File: login.html
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This is the login page of the website. It contains the following sections:
+    1. Image Section: Contains the image of the login page.
+    2. Login Form: Contains the login form with email and password fields.
+    3. Error/Success Message: Displays the error or success message after form submission.
+    4. Media Options: Contains the buttons for login with Google and iOS.
+
+    Last Edited by: Bhagyesh Chaudhari
+    Last Edited on: 27th February 2025
+
+    Changes Made: Created the login page of the website.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Linked the CSS file -->
+        <link rel="stylesheet" href="./login.css" />
+    </head>
+
+    <body>
+        <!-- Image Section -->
+        <div class="image-section">
+            <img src="../frontend/photos/login-page.png" class="image" />
+        </div>
+
+        <!-- Login Form -->
+        <div class="form">
+            <header>Login</header>
+
+            <form id="loginForm">
+
+                <!-- Email Field -->
+                <div class="field input-field">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Email"
+                        class="input"
+                        name="email"
+                        required
+                    />
+                </div>
+
+                <!-- Password Field-->
+                <div class="field input-field">
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Password"
+                        class="password"
+                        name="password"
+                        required
+                    />
+                </div>
+
+                <!-- Login Button -->
+                <div class="field button-field">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+
+            <!-- Don't have an account? Signup Link -->
+            <div class="form-link">
+                <span>
+                    Don't have an account?
+                    <a href="/healthcare-frontend/frontend/signup.html" class="link signup-link">Signup</a>
+                </span>
+            </div>
+        
+            <!-- Error/Success Message -->
+            <div id="message"></div>
+            <div class="line"></div>
+
+            <!-- Media Options -->
+            <div class="media-options">
+                <button>
+                    <img src="./photos/google-icon.png" alt="" class="google-img" />
+                </button>
+                <button>
+                    <img src="./photos/ios-icon.png" alt="" class="ios-img" />
+                </button>
+            </div>
+        </div>
+
+        <script src="./login.js"></script>
+    </body>
+</html>

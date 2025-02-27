@@ -1,0 +1,280 @@
+<!-- 
+    File: patientAppointment.html
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This file contains the HTML code for the schedule appointment page of the patient.
+                 It includes a list of  appointments, a calendar for scheduling, and a section for cancelled appointments.
+
+    Last Edited by: Bhagyesh Chaudhari
+    Last Edited on: 27th February 2025
+
+    Changes Made: Added a modal to view appointment details and updated the calendar to display appointments.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointment Dashboard</title>
+
+    <!-- Linked docAppointment.css file -->
+    <link rel="stylesheet" href="../styleSheet/patientAppointment.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Left Sidebar -->
+      <div class="left-panel">
+        <!-- Logo -->
+        <div class="logo">
+          <img src="https://i.ibb.co/f4rdZ7v/healthcare.png" alt="Logo" />
+        </div>
+
+        <!-- Menu -->
+        <div class="menu">
+          <h3>PRIMARY MENU</h3>
+          <!-- Dashboard, Top Doctor's, Appointment, Appointment Scheduling, Action Planner -->
+          <ul>
+            <li >
+              <a href="./patientDashBoard.html"
+                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              >
+            </li>
+            <li>
+              <a href=""><i class="fas fa-user-md"></i> Top Doctor's</a>
+            </li>
+            <li class="active">
+              <a href="./patientAppointment.html"
+                ><i class="fas fa-envelope"></i> Appointment
+              </a>
+            </li>
+            <li>
+              <a href="./patientAppointmentScheduling.html"
+                ><i class="fas fa-calendar-alt"></i> Appointment Scheduling</a
+              >
+            </li>
+          </ul>
+
+          <!-- Profile Section -->
+          <h3>PROFILE</h3>
+          <ul>
+            <li>
+              <a href="#"><i class="fas fa-user"></i> Profile</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-cog"></i> Profile Settings</a>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-question-circle"></i> Help & Settings</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="right-panel">
+        <!-- Top Bar -->
+        <div class="top-bar">
+          <!-- Search Bar, Notifications, Profile -->
+          <div class="search-bar">
+            <input type="text" placeholder="Search" />
+            <i class="fas fa-search"></i>
+          </div>
+
+          <!-- Profile -->
+          <div class="profile">
+            <img src="https://i.ibb.co/xH7SD7k/reception.png" alt="Profile" />
+            <span>
+              <h3>Hello Riya</h3>
+            </span>
+          </div>
+        </div>
+
+        <div class="content">
+          <!-- Left Section: Client's Appointments -->
+          <div class="client-appointments">
+            <h2>Scheduled Appointment</h2>
+            <div class="cards-container" id="patientContainer"></div>
+
+            <!-- Modal -->
+            <div class="modal" id="doctorModal">
+              <div class="modal-content">
+                <button class="close-btn" onclick="closeModal()">
+                  &times;
+                </button>
+                <h2 id="modalDoctorName"></h2>
+                <table class="doctor-details-table">
+                  <tr>
+                    <th>Patient ID:</th>
+                    <td id="modalSpecialization"></td>
+                  </tr>
+                  <tr>
+                    <th>Patient Name:</th>
+                    <td id="modalQualification"></td>
+                  </tr>
+                  <tr>
+                    <th>Doctor Name:</th>
+                    <td id="modalExperience"></td>
+                  </tr>
+                  <tr>
+                    <th>Appointment Time:</th>
+                    <td id="modalContact"></td>
+                  </tr>
+                  <tr>
+                    <th>Appointment Date:</th>
+                    <td id="modalEmail"></td>
+                  </tr>
+                  <tr>
+                    <th>Note:</th>
+                    <td id="modalFee"></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Section: Calendar and Cancelled Appointments -->
+          <div class="right-content">
+            <div class="calendar-container">
+              <h2>Calendar</h2>
+              <table id="calendar">
+                <thead>
+                  <tr>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-date="2024-01-01">1</td>
+                    <td data-date="2024-01-02">2</td>
+                    <td data-date="2024-01-03">3</td>
+                    <td data-date="2024-01-04">4</td>
+                    <td data-date="2024-01-05">5</td>
+                    <td data-date="2024-01-06">6</td>
+                    <td data-date="2024-01-07">7</td>
+                  </tr>
+                  <tr>
+                    <td data-date="2024-01-08">8</td>
+                    <td data-date="2024-01-09">9</td>
+                    <td data-date="2024-01-10">10</td>
+                    <td data-date="2024-01-11">11</td>
+                    <td data-date="2024-01-12">12</td>
+                    <td data-date="2024-01-13">13</td>
+                    <td data-date="2024-01-14">14</td>
+                  </tr>
+                  <tr>
+                    <td data-date="2024-01-15">15</td>
+                    <td data-date="2024-01-16">16</td>
+                    <td data-date="2024-01-17">17</td>
+                    <td data-date="2024-01-18">18</td>
+                    <td data-date="2024-01-19">19</td>
+                    <td data-date="2024-01-20">20</td>
+                    <td data-date="2024-01-21">21</td>
+                  </tr>
+                  <tr>
+                    <td data-date="2024-01-22">22</td>
+                    <td data-date="2024-01-23">23</td>
+                    <td data-date="2024-01-24">24</td>
+                    <td data-date="2024-01-25">25</td>
+                    <td data-date="2024-01-26">26</td>
+                    <td data-date="2024-01-27">27</td>
+                    <td data-date="2024-01-28">28</td>
+                  </tr>
+                  <tr>
+                    <td data-date="2024-01-29">29</td>
+                    <td data-date="2024-01-30">30</td>
+                    <td data-date="2024-01-31">31</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Cancelled Appointments -->
+            <div class="cancelled-appointments">
+              <h2>Cancelled Appointment</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- View Prescription-->
+      <div class="view-prescription" id="prescriptionModal">
+        <div class="cards-container2" id="prescriptionContainer">
+          <button class="close-btn" onclick="closePrescriptionModal()">
+            &times;
+          </button>
+          <h2>View Prescription</h2>
+          <table class="doctor-details-table">
+            <tr>
+              <th>Prescription:</th>
+              <td id="prescription"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Script to Send Form Data -->
+    <script src="../js/appointment.js"></script>
+
+    <!-- <script>
+      document.getElementById("appointment-form").addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission behavior
+  
+          // Manually collect form values
+          const patient_id = document.getElementById('patient_id').value;
+          const hospital_id = document.getElementById('hospital_id').value;
+          const doctor_id = document.getElementById('doctor_id').value;
+          const receptionist_id = document.getElementById('receptionist_id').value;
+          const status = document.getElementById('status').value;
+          const date = document.getElementById('date').value; // Date in YYYY-MM-DD format
+          const time = document.getElementById('time').value;
+          const notes = document.getElementById('notes').value;
+  
+          // Ensure date is in YYYY-MM-DD format (if it's not already)
+          const formattedDate = new Date(date).toISOString().split('T')[0]; // YYYY-MM-DD format
+  
+          // Create a data object
+          const appointmentData = {
+              patient_id,
+              hospital_id,
+              doctor_id,
+              receptionist_id,
+              status,
+              date: formattedDate,  // Use the formatted date
+              time,
+              notes
+          };
+  
+          // Send the data to the server
+          fetch("http://172.16.244.170:3000/appointments/create", {  // Change to localhost for local development
+              method: "POST",
+              body: JSON.stringify(appointmentData),
+              headers: {
+                  "Content-Type": "application/json"
+              }
+          })
+          .then(response => response.json())
+          .then(data => {
+              alert("Appointment Submitted Successfully!");
+              console.log("Response:", data);
+          })
+          .catch(error => {
+              alert("Error submitting appointment!");
+              console.error("Error:", error);
+          });
+      });
+  </script> -->
+  </body>
+</html>

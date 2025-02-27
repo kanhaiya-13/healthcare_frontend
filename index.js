@@ -1,3 +1,17 @@
+/* 
+    File: index.js
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This file is used to handle the homepage of the website.
+
+    Last updated by: Bhagyesh Chaudhari
+    Last updated on: 27th February 2025
+
+    Changes made : Added the code to check the session status and display the user's name and profile picture if logged in. 
+
+*/
+
 document.addEventListener("DOMContentLoaded", async () => {
   const navLinks = document.querySelector(".nav-links ul");
 
@@ -35,18 +49,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.log(data);
 
       if (data.isLoggedIn) {
+
         // Default image in case profile picture is missing
-        const defaultImage = "../photos/google-icon.png";
+        const defaultImage = "./frontend/photos/google-icon.png";
         const profilePicture = data.profilePicture || defaultImage;
 
         // Determine the profile link based on the user's role
         let profileLink = ""; // Default profile page
         if (data.user.role === "doctor") {
-          profileLink = "/frontend/html/doctor/dashBoard.html";
+          profileLink = "/healthcare-frontend/frontend/doctor/html/dashBoard.html";
         } else if (data.user.role === "patient") {
-          profileLink = "/frontend/html/patient/dashBoard.html";
+          profileLink = "/healthcare-frontend/frontend/patient/html/dashBoard.html";
         } else if (data.user.role === "receptionist") {
-          profileLink = "/frontend/receptionist-dashboard.html";
+          profileLink = "/healthcare-frontend/frontend/receptionist/html/receptionist-dashboard.html";
         }
 
         // Display user's name and profile picture
@@ -65,8 +80,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           <li><a href="#home">HOME</a></li>
           <li><a href="#about">ABOUT US</a></li>
           <li><a href="#services">SERVICES</a></li>
-          <li><a href="./login.html">Login</a></li>
-          <li><a href="./signup.html">SignUp</a></li>
+          <li><a href="/healthcare-frontend/frontend/login.html">Login</a></li>
+          <li><a href="/healthcare-frontend/frontend/signup.html">SignUp</a></li>
         `;
       }
     } else {
@@ -80,8 +95,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       <li><a href="#home">HOME</a></li>
       <li><a href="#about">ABOUT US</a></li>
       <li><a href="#services">SERVICES</a></li>
-      <li><a href="html/login.html">Login</a></li>
-      <li><a href="html/signup.html">SignUp</a></li>
+      <li><a href="/healthcare-frontend/frontend/login.html">Login</a></li>
+      <li><a href="/healthcare-frontend/frontend/signup.html">SignUp</a></li>
     `;
   }
 });

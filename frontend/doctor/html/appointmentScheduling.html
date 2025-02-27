@@ -1,0 +1,239 @@
+<!-- 
+    File: appointmentScheduling.html
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This file contains the HTML code for the appointment scheduling page of the website. 
+                 It includes a form to schedule a new appointment with a patient and submit the details to the server.
+
+    Last Edited by: Bhagyesh Chaudhari
+    Last Edited on: 27th February 2025
+
+    Changes Made: Added a modal to add a new patient and updated the form to include patient ID.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Dashboard</title>
+
+    <!-- Linked docAppointmentScheduling.css file -->
+    <link rel="stylesheet" href="../stylesheet/docAppointmentScheduling.css">
+
+    <!-- Linked addNewPatient.css file -->
+    <link rel="stylesheet" href="../styleSheet/addNewPatient.css">
+
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Left Sidebar -->
+      <div class="left-panel">
+
+        <!-- Logo -->
+        <div class="logo">
+          <img src="https://i.ibb.co/f4rdZ7v/healthcare.png" alt="Logo">
+        </div>
+
+        <!-- Menu -->
+        <div class="menu">
+          <h3>PRIMARY MENU</h3>
+          <ul>
+            <li><a href="./dashBoard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href=""><i class="fas fa-user-md"></i> Top Doctor's</a></li>
+            <li><a href="appointment.html"><i class="fas fa-envelope"></i> Appointment </a></li>
+            <li class="active"><a href="appointmentScheduling.html"><i class="fas fa-calendar-alt"></i> Appointment Scheduling</a></li>
+            <li><a href="actionplanner.html"><i class="fas fa-stethoscope"></i> Action Planner</a></li>
+          </ul>
+          
+          <h3>PROFILE</h3>
+
+          <ul>
+            <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Profile Settings</a></li>
+            <li><a href="#"><i class="fas fa-bell"></i> Notification</a></li>
+            <li><a href="#"><i class="fas fa-question-circle"></i> Help & Settings</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <!-- Right Panel -->
+      <div class="right-panel">
+
+        <!-- Top Bar -->
+        <div class="top-bar">
+          <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+          </div>
+          <div class="profile">
+            <img src="https://i.ibb.co/xH7SD7k/reception.png" alt="Profile">
+            <span>
+              <h3>Hello Riya</h3>
+            </span>
+          </div>
+        </div>
+          
+        <!-- Button to open the modal -->
+        <div class="newPatient-container">
+          <div>
+            <button class="newPatient" id="openModalBtn">Add New Patient</button>
+          </div>
+        </div>
+      
+        <!-- Form Content -->
+        <div class="content">
+
+          <!-- Form Title -->
+          <form id="appointment-form">
+
+            <!-- Patient Id -->
+            <label for="patient_id">Patient ID:</label>
+            <input type="number" id="patient_id" name="patient_id" required>
+
+            <!-- Status -->
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+              <option value="Scheduled">Scheduled</option>
+              <option value="Completed">Completed</option>
+              <option value="Cancelled">Cancelled</option>
+              <option value="Rescheduled">Rescheduled</option>
+            </select>
+
+            <!-- Appointment Date -->
+            <label for="date">Appointment Date (YYYY-MM-DD):</label>
+            <input type="date" id="date" name="date" required pattern="\d{4}-\d{2}-\d{2}">
+
+            <!-- Appointment Time -->
+            <label for="time">Appointment Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <!-- Notes -->
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes" rows="5" placeholder="Add any notes here..."></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Appointment</button>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal Overlay -->
+      <div id="modalOverlay" class="modal-overlay">
+
+        <div class="modal">
+
+          <!-- Modal Content -->
+          <div class="modal-content">
+
+            <!-- Close Button -->
+            <span class="close-btn">&times;</span>
+
+            <!-- Patient Registration Form -->
+            <div class="title">Patient Registration</div>
+            <form action="#">
+
+              <!-- User Details -->
+              <div class="user__details">
+
+                <!-- Full Name -->
+                <div class="input__box">
+                  <span class="details">Full Name</span>
+                  <input type="text" placeholder="E.g: John Smith" required>
+                </div>
+
+                <!-- Username -->
+                <div class="input__box">
+                  <span class="details">Username</span>
+                  <input type="text" placeholder="johnWC98" required>
+                </div>
+
+                <!-- Email -->
+                <div class="input__box">
+                  <span class="details">Email</span>
+                  <input type="email" placeholder="johnsmith@hotmail.com" required>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="input__box">
+                  <span class="details">Phone Number</span>
+                  <input type="text" placeholder="0123456789" required>
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="input__box">
+                  <span class="details">DOB</span>
+                  <input type="date" placeholder="DDMMYYYY" required>
+                </div>
+
+                <!-- Address -->
+                <div class="input__box">
+                  <span class="details">Address</span>
+                  <input type="text" placeholder="abc road, Ghatkopar east" required>
+                </div>
+
+                <!-- Password -->
+                <div class="input__box">
+                  <span class="details">Password</span>
+                  <input type="password" placeholder="********" required>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="input__box">
+                  <span class="details">Confirm Password</span>
+                  <input type="password" placeholder="********" required>
+                </div>
+
+              </div>
+
+              <!-- Gender Details -->
+              <div class="gender__details">
+
+                <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <input type="radio" name="gender" id="dot-3">
+                <span class="gender__title">Gender</span>
+
+                <div class="category">
+
+                  <label for="dot-1">
+                    <span class="dot one"></span>
+                    <span>Male</span>
+                  </label>
+
+                  <label for="dot-2">
+                    <span class="dot two"></span>
+                    <span>Female</span>
+                  </label>
+
+                  <label for="dot-3">
+                    <span class="dot three"></span>
+                    <span>Prefer not to say</span>
+                  </label>
+                </div>
+
+              </div>
+
+              <div class="button">
+                <input type="submit" value="Register">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linked JavaScript file -->
+    <script src="../js/appointmentScheduling.js"></script>
+  </body>
+
+</html>

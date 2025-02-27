@@ -1,0 +1,96 @@
+<!-- 
+    File: dashBoard.html
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This is the dashboard page of the website. It contains the following sections:
+    1. Left Sidebar: Contains the logo, primary menu, and profile menu.
+    2. Right Panel: Contains the header, main content, and charts for monthly overview and diagnosis distribution.
+
+    Last Edited by: Bhagyesh Chaudhari
+    Last Edited on: 27th February 2025
+
+    Changes Made: Created the dashboard page of the website.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Appointment Dashboard</title>
+
+        <!-- Linked the CSS file -->
+        <link rel="stylesheet" href="../stylesheet/docDashboard.css"> 
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- Left Sidebar -->
+            <div class="left-panel">
+                <div class="logo">
+                    <img src="https://i.ibb.co/f4rdZ7v/healthcare.png" alt="Logo">
+                </div>
+                <div class="menu">
+                    <h3>PRIMARY MENU</h3>
+                    <ul>
+                        <li class="active"><a href="./dashBoard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                        <li><a href=""><i class="fas fa-user-md"></i> Top Doctor's</a></li>
+                        <li><a href="appointment.html"><i class="fas fa-envelope"></i> Appointment</a></li>
+                        <li><a href="appointmentScheduling.html"><i class="fas fa-calendar-alt"></i> Appointment Scheduling</a></li>
+                        <li><a href="actionplanner.html"><i class="fas fa-stethoscope"></i> Action Planner</a></li>
+                    </ul>
+                    <h3>PROFILE</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Profile Settings</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> Help & Settings</a></li>
+                        <button class="logout-btn" id="logout-btn">Logout</button>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="right-panel">
+                <!-- Header -->
+                <header>
+                    <h1>Clinic Assessment Dashboard</h1>
+                    <p>Visualize and Analyze Patient Data Effectively</p>
+                </header>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <!-- Section: Monthly Overview -->
+                    <section class="chart-section">
+                        <h2 class="section-title">Monthly Overview</h2>
+                        <div class="chart-container">
+                            <div class="chart-card">
+                                <h2>Total Patients</h2>
+                                <canvas id="totalPatientsChart"></canvas>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section: Diagnosis -->
+                    <section class="chart-section">
+                        <h2 class="section-title">Diagnosis Distribution</h2>
+                        <div class="chart-container">
+                            <div class="chart-card">
+                                <h2>Top Diagnoses</h2>
+                                <canvas id="diagnosisChart"></canvas>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- Linked the JavaScript file -->
+        <script src="../js/docDashBoard.js"></script>
+
+        <!-- Linked the Chart.js library -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </body>
+
+</html>

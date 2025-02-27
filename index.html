@@ -1,74 +1,129 @@
+<!-- 
+    File: index.html
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This is the homepage of the website. It contains the following sections:
+    1. Header: Contains the navigation bar and the welcome message.
+    2. AboutUs: Contains the information about the website.
+    3. Services: Contains the services provided by the website.
+
+    Last Edited by: Bhagyesh Chaudhari
+    Last Edited on: 27th February 2025
+
+    Changes Made: Created the homepage of the website.
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homepage</title>
-    <link rel="stylesheet" href="/frontend/styleSheet/homepage.css" />
+
+    <!-- Linked the CSS file -->
+    <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
+    <!--Header-->
     <section class="header">
-      <nav>
-        <div class="nav-links">
-          <ul>
-          </ul>
-        </div>
+      <nav class="nav-links">
+        <ul></ul>
       </nav>
-      <div class="text-box">
-        <span class="custom-font"
-          ><h1>Welcome!</h1>
-          <p>Doctors at your fingertip, appointments made simple</p></span
-        >
-      </div>
-    </section>
-    <!--AboutUs-->
-    <section class="AboutUs">
-      <h1>About Us</h1><br>
-      <div class="" style="display: flex;">
-        <p></p>
-    
-        <h3>
-            At Medify, we value your time and health. Our mission is to provide a
-            seamless experience<br />
-            for patients to find the right doctors, view their profiles, and
-            schedule appointments online at their convenience.<br />
-            Whether you need a general consultation or specialized care, we've got
-            you covered.<br />
-    
-            Join thousands of satisfied patients who trust HealthConnect for their
-            healthcare needs. 
-          </h3><br />
-            <b>
-              <p>
-                <h2>
-            <br>Your health, our priority.</b>
-          </h3>
-          </p>
-          </p>
-          <div class="image-sec">
-            <img src="/frontend/photos/AboutUs.jpg" />
-          </div>
-      </div>      
     </section>
 
-    <!--Services-->
+    <!--Welcome-->
+    <section class="welcome">
+      <h1>Welcome to Medify</h1>
+      <p>Your health, our priority.</p>
+    </section>
+
+    <!--AboutUs-->
+    <section class="aboutUs">
+      <h1>About Us</h1>
+      <p>
+        Medify is a healthcare platform that connects patients with healthcare
+        providers. Our platform offers a range of services, including online
+        appointment booking, online consultation with experienced doctors, and
+        health record management. We aim to simplify healthcare access and
+        provide quality care to patients from the comfort of their homes.
+      </p>
+      <h2>Our Mission</h2>
+      <p>
+        At Medify, our mission is to revolutionize healthcare by making it more
+        accessible, affordable, and patient-centric. We believe that everyone
+        deserves access to quality healthcare, regardless of their location or
+        circumstances. By leveraging technology, we strive to bridge the gap
+        between patients and healthcare providers.
+      </p>
+      <h2>Our Values</h2>
+      <ul>
+        <li>
+          <strong>Patient-Centric Care:</strong> We prioritize the needs and
+          well-being of our patients above all else.
+        </li>
+        <li>
+          <strong>Innovation:</strong> We continuously innovate to provide
+          cutting-edge solutions for healthcare challenges.
+        </li>
+        <li>
+          <strong>Transparency:</strong> We believe in clear communication and
+          honesty in all our interactions.
+        </li>
+        <li>
+          <strong>Compassion:</strong> We treat every patient with empathy,
+          respect, and kindness.
+        </li>
+      </ul>
+      <h2>Our Team</h2>
+      <p>
+        Medify is powered by a dedicated team of healthcare professionals,
+        technologists, and customer support specialists. Our doctors are highly
+        experienced and certified, ensuring that you receive the best care
+        possible. Our tech team works tirelessly to create a seamless and
+        user-friendly platform, while our support team is always here to assist
+        you with any queries or concerns.
+      </p>
+      <h3>Your health, our priority.</h3>
+    </section>
+
+    <!-- Services -->
     <section class="Services">
       <h1>Services we provide!!!</h1>
       <div class="row">
-            <div class="course-col">
-              <h3>Online Appointment Booking</h3>
-              <p>Online appointment booking platforms for doctors simplify healthcare access by allowing patients to search for healthcare providers based on specialty, location, or condition. These platforms offer real-time slot availability, enabling instant booking, rescheduling, or cancellation of appointments.</p>
+        <div class="course-col">
+          <h3>Online Appointment Booking</h3>
+          <p>
+            Online appointment booking platforms for doctors simplify healthcare
+            access by allowing patients to search for healthcare providers based
+            on specialty, location, or condition. These platforms offer
+            real-time slot availability, enabling instant booking, rescheduling,
+            or cancellation of appointments.
+          </p>
+        </div>
+        <div class="course-col">
+          <h3>Online consultation with experienced doctor</h3>
+          <p>
+            Online consultation with experienced doctors allows patients to
+            connect with qualified healthcare professionals from the comfort of
+            their homes. It includes video, audio, or chat-based consultations
+            for quick diagnosis, medical advice, and treatment plans.
+          </p>
+        </div>
+        <div class="course-col">
+          <h3>Health Record Management</h3>
+          <p>
+            Health Record Management services allow patients to securely store
+            and access their medical history online. This includes past
+            consultations, prescriptions, lab reports, and treatment records,
+            ensuring all critical information is centralized.
+          </p>
+        </div>
       </div>
-            <div class="course-col">
-            <h3>Online consultation with experienced doctor</h3>
-            <p>Online consultation with experienced doctors allows patients to connect with qualified healthcare professionals from the comfort of their homes. It includes video, audio, or chat-based consultations for quick diagnosis, medical advice, and treatment plans. </p>
-      </div>
-            <div class="course-col">
-            <h3>Health Record Management</h3>
-            <p>Health Record Management services allow patients to securely store and access their medical history online. This includes past consultations, prescriptions, lab reports, and treatment records, ensuring all critical information is centralized.</p>
-      </div>
-    </div>
     </section>
-     <script src="/frontedn/javaScript/homepage.js"></script>
+
+    <!-- Linked the JS file -->
+    <script src="./index.js"></script>
   </body>
 </html>

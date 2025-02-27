@@ -1,3 +1,17 @@
+/* 
+  File: actionplanner.js
+  Created by: Bhagyesh Chaudhari
+  Created on: 27th February 2025
+
+  Description: files contains the logic through which the doctors will be able to manage their Schedule.
+
+  Last updated by: Bhagyesh Chaudhari
+  Last updated on: 27th February 2025
+
+  Changes made : Added the logic so that the doctor can manage their schedule and availability, Even doctor will be able to see which slots are booked by the patients.
+
+*/
+
 document.addEventListener("DOMContentLoaded", function () {
   const calendarEl = document.getElementById("calendar");
 

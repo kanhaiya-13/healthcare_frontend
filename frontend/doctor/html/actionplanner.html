@@ -1,32 +1,54 @@
+<!-- 
+    File: actionplanner.html
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: Action Planner page for the doctor to visualize and manage their schedules.
+
+    Last Edited by: Bhagyesh Chaudhari
+    Last Edited on: 27th February 2025
+
+    Changes Made: Added the FullCalendar JS and the actionplanner.js file.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Action Planner</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Action Planner</title>
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="../../styleSheet/actionplanner.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.min.css">
-</head>
+        <!-- Linking the CSS files -->
+        <link rel="stylesheet" href="../styleSheet/actionplanner.css">
+
+        <!-- Linking the external CSS files -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.min.css">
+
+    </head>
 
 <body>
     <div class="container">
         <!-- Left Sidebar -->
         <div class="left-panel">
+
+            <!-- Logo -->
             <div class="logo">
                 <img src="https://i.ibb.co/f4rdZ7v/healthcare.png" alt="Logo">
             </div>
             <div class="menu">
+
+                <!-- Menu Items -->
                 <h3>PRIMARY MENU</h3>
                 <ul>
                     <li><a href="./dashBoard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                     <li><a href="#"><i class="fas fa-user-md"></i> Top Doctor's</a></li>
-                    <li><a href="appointment.html"><i class="fas fa-envelope"></i> Appointment</a></li>
-                    <li><a href="appointmentScheduling.html"><i class="fas fa-calendar-alt"></i> Appointment Scheduling</a></li>
-                    <li class="active"><a href="actionplanner.html"><i class="fas fa-stethoscope"></i> Action Planner</a></li>
+                    <li><a href="./appointment.html"><i class="fas fa-envelope"></i> Appointment</a></li>
+                    <li><a href="./appointmentScheduling.html"><i class="fas fa-calendar-alt"></i> Appointment Scheduling</a></li>
+                    <li class="active"><a href="./actionplanner.html"><i class="fas fa-stethoscope"></i> Action Planner</a></li>
                 </ul>
+
+                <!-- Profile -->
                 <h3>PROFILE</h3>
                 <ul>
                     <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
@@ -54,7 +76,9 @@
 
     <!-- FullCalendar JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.global.min.js"></script>
-    <script src="../../javaScript/actionplanner.js"></script>
+
+    <!-- Action Planner JS -->
+    <script src="../js/actionplanner.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,16 @@
+/* 
+    File: actionplanner.css
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This CSS file contains the styling for the doctor's action planner page.
+
+    Last updated by: Bhagyesh Chaudhari
+    Last updated on: 27th February 2025
+
+    Changes Made: Created the CSS file for the doctor's action planner page.
+*/
+
 /* General Body Styling */
 body {
     font-family: 'Roboto', sans-serif;
@@ -28,6 +41,7 @@ body {
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo */
 .logo {
     text-align: center;
     margin-bottom: 15px;
@@ -43,6 +57,7 @@ body {
     transform: scale(1.1);
 }
 
+/* Menu */
 .menu h3 {
     font-size: 18px;
     text-transform: uppercase;

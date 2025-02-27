@@ -1,50 +1,68 @@
+<!-- 
+    File: appointment.html
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This file contains the HTML code for the appointment dashboard page of the website.
+                 It includes a list of client's appointments, a calendar for scheduling, and a section for cancelled appointments.
+
+    Last Edited by: Bhagyesh Chaudhari
+    Last Edited on: 27th February 2025
+
+    Changes Made: Added a modal to view appointment details and updated the calendar to display appointments.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Appointment Dashboard</title>
-    <link rel="stylesheet" href="../../styleSheet/docAppointment.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
+
+    <!-- Linked docAppointment.css file -->
+    <link rel="stylesheet" href="../styleSheet/docAppointment.css" />
   </head>
 
   <body>
     <div class="container">
       <!-- Left Sidebar -->
       <div class="left-panel">
+        <!-- Logo -->
         <div class="logo">
           <img src="https://i.ibb.co/f4rdZ7v/healthcare.png" alt="Logo" />
         </div>
+
+        <!-- Menu -->
         <div class="menu">
           <h3>PRIMARY MENU</h3>
+          <!-- Dashboard, Top Doctor's, Appointment, Appointment Scheduling, Action Planner -->
           <ul>
             <li>
-              <a href="./dashBoard.html"
-                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              <a href="./dashBoard.html">
+                <i class="fas fa-tachometer-alt"></i> Dashboard</a
               >
             </li>
             <li>
               <a href=""><i class="fas fa-user-md"></i> Top Doctor's</a>
             </li>
             <li class="active">
-              <a href="appointment.html"
+              <a href="./appointment.html"
                 ><i class="fas fa-envelope"></i> Appointment
               </a>
             </li>
             <li>
-              <a href="appointmentScheduling.html"
+              <a href="./appointmentScheduling.html"
                 ><i class="fas fa-calendar-alt"></i> Appointment Scheduling</a
               >
             </li>
             <li>
-              <a href="actionplanner.html"
+              <a href="./actionplanner.html"
                 ><i class="fas fa-stethoscope"></i> Action Planner</a
               >
             </li>
           </ul>
+
+          <!-- Profile Section -->
           <h3>PROFILE</h3>
           <ul>
             <li>
@@ -67,14 +85,18 @@
 
       <!-- Right Panel -->
       <div class="right-panel">
+        <!-- Top Bar -->
         <div class="top-bar">
+          <!-- Search Bar, Notifications, Profile -->
           <div class="search-bar">
             <input type="text" placeholder="Search" />
             <i class="fas fa-search"></i>
           </div>
+
           <div class="notifications">
             <i class="fas fa-bell"></i>
           </div>
+
           <div class="profile">
             <img src="https://i.ibb.co/xH7SD7k/reception.png" alt="Profile" />
             <span>
@@ -188,6 +210,7 @@
               </table>
             </div>
 
+            <!-- Cancelled Appointments -->
             <div class="cancelled-appointments">
               <h2>Cancelled Appointment</h2>
             </div>
@@ -195,22 +218,29 @@
         </div>
       </div>
     </div>
+
     <!-- Prescription Modal -->
     <div id="prescriptionModal" class="modal" style="display: none">
       <div class="modal-content">
         <span class="close" onclick="closePrescriptionModal()">&times;</span>
+
+        <!-- Prescription Form -->
         <h2>Add Prescription</h2>
         <form id="prescriptionForm">
           <input type="hidden" id="prescription_patient_id" />
           <input type="hidden" id="prescription_doctor_id" />
           <input type="hidden" id="prescription_hospital_id" />
 
+          <!-- Prescription Fields -->
+          <!-- Patient Name -->
           <label>Patient Name:</label>
           <input type="text" id="prescription_patient_name" disabled />
 
+          <!-- Age -->
           <label>Age:</label>
           <input type="number" id="prescription_patient_age" required />
 
+          <!-- Gender -->
           <label>Gender:</label>
           <select id="prescription_patient_gender" required>
             <option value="Male">Male</option>
@@ -218,33 +248,43 @@
             <option value="Other">Other</option>
           </select>
 
+          <!-- Contact -->
           <label>Contact:</label>
           <input type="text" id="prescription_patient_contact" />
 
+          <!-- BP Reading -->
           <label>BP Reading:</label>
           <input type="text" id="prescription_bp_reading" />
 
+          <!-- Pulse Rate -->
           <label>Pulse Rate:</label>
           <input type="number" id="prescription_pulse_rate" />
 
+          <!-- Weight -->
           <label>Weight (kg):</label>
           <input type="number" step="0.1" id="prescription_weight" />
 
+          <!-- Spo2 -->
           <label>SPO2:</label>
           <input type="number" step="0.1" id="prescription_spo2" />
 
+          <!-- Diagnosis -->
           <label>Diagnosis:</label>
           <textarea id="prescription_diagnosis"></textarea>
 
+          <!-- System Examination -->
           <label>System Examination:</label>
           <textarea id="prescription_system_examination"></textarea>
 
+          <!-- Patient Complaints -->
           <label>Patient Complaints:</label>
           <textarea id="prescription_patient_complaints"></textarea>
 
+          <!-- Referring Doctor -->
           <label>Referring Doctor:</label>
           <input type="text" id="prescription_referring_doctor" />
 
+          <!-- Prescribing Doctor -->
           <label>Prescribing Doctor:</label>
           <input
             type="text"
@@ -252,294 +292,31 @@
             disabled
           />
 
+          <!-- Doctor Qualifications -->
           <label>Doctor Qualifications:</label>
           <textarea id="prescription_doctor_qualifications"></textarea>
 
+          <!-- Doctor Registration Number -->
           <label>Doctor Registration Number:</label>
           <input type="text" id="prescription_doctor_registration_number" />
 
+          <!-- Notes -->
           <label>Notes:</label>
           <textarea id="prescription_notes"></textarea>
 
+          <!-- Follow-up Date -->
           <label>Follow-up Date:</label>
           <input type="date" id="prescription_follow_up_date" />
 
+          <!-- Submit Button -->
           <button type="submit">Save Prescription</button>
         </form>
       </div>
     </div>
-    <script>
-      const BACKEND_URL = "http://localhost:3000"; // Replace with your backend URL
-
-      let doctors = []; // Store fetched doctor data globally
-
-      async function fetchDoctors() {
-        try {
-          // Fetch the appointments data from the backend API
-          const response = await fetch(`${BACKEND_URL}/appointments`, {
-            method: "GET",
-            credentials: "include", // This ensures cookies are sent
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-
-          // Check if the response is successful
-          if (!response.ok) {
-            throw new Error("Failed to fetch appointments");
-          }
-
-          // Parse the response as JSON
-          const appointments = await response.json();
-
-          // Store the appointments data in the doctors array
-          doctors = appointments;
-
-          // Render doctors (appointments) data
-          renderDoctors(doctors);
-
-          // Attach calendar events (for date filtering)
-          attachCalendarEvents();
-        } catch (error) {
-          console.error("Error fetching appointments:", error);
-        }
-      }
-
-      // Call the fetchDoctors function when the page loads
-      fetchDoctors();
-
-      function renderDoctors(filteredDoctors) {
-        const container = document.getElementById("doctorsContainer");
-        container.innerHTML = ""; // Clear existing content
-
-        if (filteredDoctors.length === 0) {
-          container.innerHTML =
-            "<p>No appointments available for the selected date.</p>";
-          return;
-        }
-
-        filteredDoctors.forEach((doctor) => {
-          const doctorCard = document.createElement("div");
-          doctorCard.className = "doctor-card";
-
-          // Set the card content
-          doctorCard.innerHTML = `
-            <div class="appointmentInfo"> 
-                <p class="doctor-name">${doctor.patient_name}</p>
-                <p class="doctor-info">Doctor Name: ${doctor.doctor_name}</p>
-                <p class="doctor-info">Date: ${doctor.appointment_date}</p>
-                <p class="doctor-info">Time: ${doctor.appointment_time}</p>
-            </div>
-            <div>
-                <button class="addPrescription">Add Prescription</button>
-            </div>
-        `;
-
-          // Click event for the doctor card (except the button)
-          doctorCard.addEventListener("click", (event) => {
-            if (!event.target.classList.contains("addPrescription")) {
-              openModal(
-                doctor.appointment_id,
-                doctor.patient_id,
-                doctor.patient_name,
-                doctor.doctor_name,
-                doctor.appointment_time,
-                doctor.appointment_date,
-                doctor.notes
-              );
-            }
-          });
-
-          // Click event for the "Add Prescription" button
-          const addPrescriptionButton =
-            doctorCard.querySelector(".addPrescription");
-          addPrescriptionButton.addEventListener("click", (event) => {
-            event.stopPropagation(); // Prevents the card's click event from firing
-            addPrescriptionFunction(doctor);
-          });
-
-          // Append the card to the container
-          container.appendChild(doctorCard);
-        });
-      }
-
-      function addPrescriptionFunction(doctor) {
-        document.getElementById("prescription_patient_id").value =
-          doctor.patient_id;
-        document.getElementById("prescription_doctor_id").value =
-          doctor.doctor_id;
-        document.getElementById("prescription_patient_name").value =
-          doctor.patient_name;
-        document.getElementById("prescription_prescribing_doctor_name").value =
-          doctor.doctor_name;
-        document.getElementById("prescriptionModal").style.display = "flex";
-      }
-
-      function closePrescriptionModal() {
-        document.getElementById("prescriptionModal").style.display = "none";
-      }
-
-      document
-        .getElementById("prescriptionForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
-          const prescriptionData = {
-            patient_id: document.getElementById("prescription_patient_id")
-              .value,
-            doctor_id: document.getElementById("prescription_doctor_id").value,
-            hospital_id: document.getElementById("prescription_hospital_id")
-              .value,
-            prescription_date: new Date().toISOString().split("T")[0],
-            patient_name: document.getElementById("prescription_patient_name")
-              .value,
-            patient_age: document.getElementById("prescription_patient_age")
-              .value,
-            patient_gender: document.getElementById(
-              "prescription_patient_gender"
-            ).value,
-            patient_contact: document.getElementById(
-              "prescription_patient_contact"
-            ).value,
-            bp_reading: document.getElementById("prescription_bp_reading")
-              .value,
-            pulse_rate: document.getElementById("prescription_pulse_rate")
-              .value,
-            weight: document.getElementById("prescription_weight").value,
-            spo2: document.getElementById("prescription_spo2").value,
-            diagnosis: document.getElementById("prescription_diagnosis").value,
-            system_examination: document.getElementById(
-              "prescription_system_examination"
-            ).value,
-            patient_complaints: document.getElementById(
-              "prescription_patient_complaints"
-            ).value,
-            referring_doctor: document.getElementById(
-              "prescription_referring_doctor"
-            ).value,
-            prescribing_doctor_name: document.getElementById(
-              "prescription_prescribing_doctor_name"
-            ).value,
-            doctor_qualifications: document.getElementById(
-              "prescription_doctor_qualifications"
-            ).value,
-            doctor_registration_number: document.getElementById(
-              "prescription_doctor_registration_number"
-            ).value,
-            notes: document.getElementById("prescription_notes").value,
-            follow_up_date: document.getElementById(
-              "prescription_follow_up_date"
-            ).value,
-          };
-
-
-    // Log prescription data before sending
-    console.log("Prescription Data:", prescriptionData);
-
-          try {
-            const response = await fetch(
-              "http://localhost:3000/prescription",
-              {
-                method: "POST",
-                credentials: "include",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(prescriptionData),
-              }
-            );
-
-            if (response.ok) {
-              alert("Prescription saved successfully!");
-              closePrescriptionModal();
-            } else {
-              alert("Failed to save prescription.");
-            }
-          } catch (error) {
-            console.error("Error saving prescription:", error);
-            alert("Error occurred while saving.");
-          }
-        });
-
-
-      function attachCalendarEvents() {
-        const calendarCells = document.querySelectorAll(
-          "#calendar td[data-date]"
-        );
-
-        calendarCells.forEach((cell) => {
-          cell.addEventListener("click", () => {
-            const selectedDate = cell.getAttribute("data-date");
-            filterAppointmentsByDate(selectedDate);
-          });
-        });
-      }
-
-      function filterAppointmentsByDate(selectedDate) {
-        const filteredDoctors = doctors.filter(
-          (doctor) => doctor.appointment_date === selectedDate
-        );
-        renderDoctors(filteredDoctors);
-      }
-
-      function attachCalendarEvents() {
-        const calendarCells = document.querySelectorAll("#calendar td");
-
-        calendarCells.forEach((cell) => {
-          cell.addEventListener("click", function () {
-            const selectedDate = this.getAttribute("data-date");
-
-            // Ensure the selectedDate is in the same format as the appointment date
-            const formattedSelectedDate = new Date(selectedDate)
-              .toISOString()
-              .split("T")[0];
-
-            // Filter appointments based on selected date
-            const filteredAppointments = appointments.filter((appointment) => {
-              const formattedAppointmentDate = new Date(
-                appointment.appointment_date
-              )
-                .toISOString()
-                .split("T")[0];
-              return formattedAppointmentDate === formattedSelectedDate;
-            });
-
-            renderAppointments(filteredAppointments); // Re-render appointments with the filtered data
-          });
-        });
-      }
-
-      function openModal(
-        appointment_id,
-        patient_id,
-        patient_name,
-        doctor_name,
-        appointment_time,
-        appointment_date,
-        notes
-      ) {
-        // Set modal content
-        document.getElementById("modalDoctorName").innerText = appointment_id;
-        document.getElementById("modalSpecialization").innerText = patient_id;
-        document.getElementById("modalQualification").innerText = patient_name;
-        document.getElementById("modalExperience").innerText = doctor_name;
-        document.getElementById("modalContact").innerText = appointment_time;
-        document.getElementById("modalEmail").innerText = appointment_date;
-        document.getElementById("modalFee").innerText = notes;
-
-        // Display the modal
-        document.getElementById("doctorModal").style.display = "flex";
-      }
-
-      function closeModal() {
-        // Hide the modal when close button is clicked
-        document.getElementById("doctorModal").style.display = "none";
-      }
-
-      // Fetch doctors when the page loads
-      fetchDoctors();
-    </script>
 
     <!-- Script to Send Form Data -->
+    <script src="../js/appointment.js"></script>
+
     <!-- <script>
       document.getElementById("appointment-form").addEventListener("submit", function (event) {
           event.preventDefault(); // Prevent default form submission behavior

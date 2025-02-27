@@ -1,3 +1,17 @@
+/* 
+    File: patientAppointment.css
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This CSS file contains the styling for the Patient Scheduled appointment.
+
+    Last updated by: Bhagyesh Chaudhari
+    Last updated on: 27th February 2025
+
+    Changes Made: Created the CSS file for the Patient's Scheduled appointment.
+
+*/
+
 /* General Body Styling */
 body {
   font-family: Arial, sans-serif;
@@ -26,6 +40,7 @@ body {
   flex-shrink: 0; /* Ensure the sidebar does not shrink */
 }
 
+/* Logo */
 .logo {
   text-align: center;
   margin-bottom: 15px;
@@ -36,6 +51,7 @@ body {
   border-radius: 50%;
 }
 
+/* Menu */
 .menu h3 {
   font-size: 18px;
   text-transform: uppercase;
@@ -64,12 +80,12 @@ body {
 }
 
 .menu ul li a:hover {
-  background-color: #33E4DB;
+  background-color: #33e4db;
   border-radius: 5px;
 }
 
 .menu ul li.active a {
-  background-color: #33E4DB;
+  background-color: #33e4db;
   color: #000000;
   border-radius: 5px;
 }
@@ -87,11 +103,12 @@ body {
   overflow-y: auto; /* Allow scrolling for overflow content */
 }
 
+/* Top Bar */
 .top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #33E4DB;
+  background-color: #33e4db;
   color: #fff;
   padding: 10px 20px;
   flex-wrap: wrap;
@@ -113,16 +130,7 @@ body {
   outline: none;
 }
 
-.notifications {
-  margin-right: 20px;
-  cursor: pointer;
-  color: #000000;
-}
-
-.notifications i {
-  font-size: 20px;
-}
-
+/* Profile Section */
 .profile {
   display: flex;
   align-items: center;
@@ -161,6 +169,7 @@ body {
   color: #1e3d59;
 }
 
+/* Appointment List */
 .appointment-list {
   display: flex;
   flex-wrap: wrap;
@@ -257,7 +266,7 @@ body {
 }
 
 .calendar-container th {
-  background-color: #33E4DB;
+  background-color: #33e4db;
   color: #fff;
 }
 
@@ -321,12 +330,10 @@ body {
 
   .appointment-details h3 {
     font-size: 16px;
-
   }
 
   .appointment-details p {
     font-size: 10px;
-    
   }
 
   .calendar-container th,
@@ -335,17 +342,21 @@ body {
   }
 }
 
-
 .cards-container {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Flexible grid */
   gap: 20px; /* Spacing between cards */
   max-width: 1200px;
   margin: 20px auto;
   padding: 10px;
 }
 
-.addPrescription{
-  background-color: #33E4DB;
+/* View Prescription Button */
+
+.viewPrescription {
+  background-color: #33e4db;
   color: #fff;
   padding: 12px;
   font-size: 16px;
@@ -355,6 +366,7 @@ body {
   transition: background-color 0.3s;
   width: 100%;
 }
+
 /* Doctor Cards */
 .doctor-card {
   border: 1px solid #ddd;
@@ -408,6 +420,7 @@ body {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Close Button */
 .close-btn {
   position: absolute;
   top: 10px;
@@ -426,6 +439,7 @@ body {
   background: #d32f2f;
 }
 
+/* Modal Content */
 .modal-content h2 {
   text-align: center;
   color: #333;
@@ -465,104 +479,27 @@ body {
   border-bottom: none;
 }
 
-
-/* Prescription Modal Styling */
-#prescriptionModal {
+/* view prescription modal */
+#prescriptionModal{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  z-index: 1000;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
-  overflow-y: auto; /* Allow scrolling if content exceeds */
 }
 
-.modal-content::-webkit-scrollbar {
-  width: 10px;
-}
+.cards-container2{
 
-.modal-content::-webkit-scrollbar-thumb {
-  background-color: #33E4DB;
-  border-radius: 20px;
-}
-
-.modal-content::-webkit-scrollbar-track {
-  background-color: #f4f7fa;
-}
-
-
-.modal-content {
-  background-color: #fff;
-  border-radius: 8px;
+  background: #fff;
   padding: 20px;
-  max-width: 800px;
+  border-radius: 10px;
   width: 90%;
-  overflow-y: auto; /* Allow scrolling if content exceeds */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 80%;
-  border-radius: 2%;
-}
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 
-.modal-content h2 {
-  text-align: center;
-  margin-bottom: 20px;
 }
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 30px;
-  cursor: pointer;
-  color: #333;
-}
-
-.close:hover {
-  color: #33E4DB;
-}
-
-/* Form Styling */
-#prescriptionForm {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-#prescriptionForm label {
-  font-weight: bold;
-  color: #333;
-}
-
-#prescriptionForm input,
-#prescriptionForm select,
-#prescriptionForm textarea {
-  padding: 12px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#prescriptionForm textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-#prescriptionForm input:disabled {
-  background-color: #f4f7fa;
-}
-
-#prescriptionForm button {
-  background-color: #33E4DB;
-  color: #fff;
-  padding: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  width: 100%;
-}
-
-#prescriptionForm button:hover {
-  background-color: #29c7b9;
-}
-

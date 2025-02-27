@@ -1,7 +1,20 @@
+/* 
+    File: docDashBoard.js
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This script sends a request to the server to fetch the clinic assessment data and renders the charts on the doctor's dashboard.
+
+    Last updated by: Bhagyesh Chaudhari
+    Last updated on: 27th February 2025
+
+    Changes made : Added the code to fetch the clinic assessment data and render the charts on the doctor's dashboard.
+*/
+
 // Define the backend URL
 const BACKEND_URL = "http://localhost:3000";
 
-// Helper function to get a specific cookie value
+/******************************************* Helper function to get a specific cookie value ***********************************************/
 function getCookie(name) {
   const cookieArr = document.cookie.split("; ");
   for (let cookie of cookieArr) {
@@ -13,7 +26,7 @@ function getCookie(name) {
   return null;
 }
 
-// Fetch assessment data from the backend
+/******************************************* Fetch assessment data from the backend ***********************************************************/
 async function fetchAssessmentData() {
   try {
     // Retrieve the token from cookies
@@ -73,7 +86,7 @@ async function fetchAssessmentData() {
   }
 }
 
-// Render Charts
+/******************************************* Render Charts using Chart.js ***********************************************************/
 function renderCharts(patientsData, diagnosisData) {
   // Total Patients Chart
   new Chart(document.getElementById("totalPatientsChart"), {
@@ -129,7 +142,7 @@ function renderCharts(patientsData, diagnosisData) {
   }
 }
 
-// Ensure data is fetched and rendered when the page loads
+/******************************************* Ensure data is fetched and rendered when the page loads *******************************************/
 document.addEventListener("DOMContentLoaded", () => {
   fetchAssessmentData();
 });

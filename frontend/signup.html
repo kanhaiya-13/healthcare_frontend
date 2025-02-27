@@ -1,0 +1,119 @@
+<!-- 
+    File: signup.html
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This is the sign-up page of the website. It contains the following sections:
+    1. Image Section: Contains the image of the sign-up page.
+    2. Sign-Up Form: Contains the sign-up form with email, role, password, and confirm password fields.
+    3. Error/Success Message: Displays the error or success message after form submission.
+    4. Media Options: Contains the buttons for sign-up with Google and iOS.
+
+    Last Edited by: Bhagyesh Chaudhari
+    Last Edited on: 27th February 2025
+
+    Changes Made: Created the sign-up page of the website.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign Up</title>
+
+        <!-- Linked the CSS file -->
+        <link rel="stylesheet" href="./signup.css" />
+    </head>
+
+    <body>
+        <!-- Image Section -->
+        <div class="image-section">
+            <img src="../frontend/photos/login-page.png" class="image" />
+        </div>
+
+        <!-- Sign-Up Form -->
+        <div class="form">
+            <header>Sign Up</header>
+
+            <form id="signupForm">
+
+                <!-- Email Field -->
+                <div class="field input-field">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Email"
+                        class="input"
+                        name="email"
+                        required
+                    />
+                </div>
+
+                <!-- Role Field -->
+                <div class="field input-field">
+                    <select id="role" name="role" class="input Role" required>
+                        <option value="patient">Patient</option>
+                        <option value="doctor">Doctor</option>
+                    </select>
+                </div>
+
+                <!-- Password Field -->
+                <div class="field input-field">
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Password"
+                        name="password"
+                        class="password"
+                        required
+                    />
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="field input-field">
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm Password"
+                        name="confirmPassword"
+                        class="password"
+                        required
+                    />
+                </div>
+
+                <!-- Sign-Up Button -->
+                <div class="field button-field">
+                    <button type="submit">Sign Up</button>
+                </div>
+            </form>
+            
+            <!-- Don't have an account? Login Link -->
+            <div class="form-link">
+                <span>
+                    Already have an account?
+                    <a href="/healthcare-frontend/frontend/login.html" class="link signup-link"><u>Login</u></a>
+                </span>
+            </div>
+        
+            <!-- Error/Success Message -->
+            <div id="message"></div>
+            <div class="line"></div>
+
+            <!-- Media Options -->
+            <div class="media-options">
+                <button>
+                    <img src="./photos/google-icon.png" alt="" class="google-img" />
+                </button>
+                <button>
+                    <img src="./photos/ios-icon.png" alt="" class="ios-img" />
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Linked the JS file -->
+        <script src="./signup.js"></script>
+    </body>
+</html>

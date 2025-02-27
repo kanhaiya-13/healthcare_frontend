@@ -1,0 +1,99 @@
+<!-- 
+    File: patientDashBoard.html
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This file contains the patient dashboard page.
+
+    Last Edited by: Bhagyesh Chaudhari
+    Last Edited on: 27th February 2025
+
+    Changes Made: Created the patient dashboard page.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointment Dashboard</title>
+
+    <!-- Linked the CSS file -->
+    <link rel="stylesheet" href="../stylesheet/patientDashboard.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Left Sidebar -->
+      <div class="left-panel">
+        <div class="logo">
+          <img src="https://i.ibb.co/f4rdZ7v/healthcare.png" alt="Logo" />
+        </div>
+        <div class="menu">
+          <h3>PRIMARY MENU</h3>
+          <ul>
+            <li class="active">
+              <a href="./patientDashBoard.html"
+                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              >
+            </li>
+            <li>
+              <a href=""><i class="fas fa-user-md"></i> Top Doctor's</a>
+            </li>
+            <li>
+              <a href="./patientAppointment.html">
+                <i class="fas fa-envelope"></i> Appointment
+              </a>
+            </li>
+            <li>
+              <a href="./patientAppointmentScheduling.html">
+                <i class="fas fa-calendar-alt"></i> Appointment Scheduling</a
+              >
+            </li>
+          </ul>
+          <h3>PROFILE</h3>
+          <ul>
+            <li>
+              <a href="#"><i class="fas fa-user"></i> Profile</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-cog"></i> Profile Settings</a>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-question-circle"></i> Help & Settings</a
+              >
+            </li>
+            <button class="logout-btn" id="logout-btn">Logout</button>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="right-panel">
+        <!-- Top Bar -->
+        <div class="top-bar">
+          <!-- Search Bar, Notifications, Profile -->
+          <div class="search-bar">
+            <input type="text" placeholder="Search" />
+            <i class="fas fa-search"></i>
+          </div>
+
+          <!-- Profile -->
+          <div class="profile">
+            <img src="https://i.ibb.co/xH7SD7k/reception.png" alt="Profile" />
+            <span>
+              <h3>Hello Riya</h3>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linked the JavaScript file -->
+    <script src="../js/patientDashBoard.js"></script>
+
+    <!-- Linked the Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>

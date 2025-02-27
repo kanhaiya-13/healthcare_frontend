@@ -1,0 +1,201 @@
+/* 
+    File: patientAppointmentScheduling.css
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: This file contains the styling of the patient's appointment scheduling page of the website.
+
+    Last updated by: Bhagyesh Chaudhari
+    Last updated on: 27th February 2025
+
+    Changes Made: Added the styling for the patient's appointment scheduling page of the website.
+
+*/
+
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7fa;
+  color: #333;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Container Layout */
+.container {
+  display: flex;
+  height: 100vh;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Left Panel (Sidebar) */
+.left-panel {
+  width: 16%;
+  background-color: #ffffff;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  flex-shrink: 0; /* Ensure the sidebar does not shrink */
+}
+
+/* Logo */
+.logo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.logo img {
+  width: 80px;
+  border-radius: 50%;
+}
+
+/* Menu */
+.menu h3 {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #445a6f;
+  padding-bottom: 5px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li {
+  margin: 10px 0;
+}
+
+.menu ul li a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.menu ul li a:hover {
+  background-color: #33e4db;
+  border-radius: 5px;
+}
+
+.menu ul li.active a {
+  background-color: #33e4db;
+  color: #000000;
+  border-radius: 5px;
+}
+
+.menu ul li i {
+  margin-right: 15px;
+}
+
+/* Right Panel */
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  overflow-y: auto; /* Allow scrolling for overflow content */
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #33e4db;
+  color: #fff;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.top-bar .search-bar {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.search-bar input {
+  padding: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  outline: none;
+}
+
+/* Profile */
+.profile {
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* Content Area */
+.content {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  gap: 20px;
+  overflow-y: scroll;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  overflow: hidden;
+}
+/* Form Styling */
+form {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input,
+form select,
+form textarea {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 50px;
+}
+
+form button {
+  background-color: #33e4db;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #29c7b9;
+}

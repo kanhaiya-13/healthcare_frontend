@@ -1,3 +1,16 @@
+/* 
+    File: login.js
+    Created by: Bhagyesh Chaudhari
+    Created on: 27th February 2025
+
+    Description: Contains the JavaScript code for the login page.
+
+    Last updated by: Bhagyesh Chaudhari
+    Last updated on: 27th February 2025
+
+    Changes made : Added the code to send a login request to the server and handle the response.
+*/
+
 document
   .getElementById("loginForm")
   .addEventListener("submit", async function (event) {
